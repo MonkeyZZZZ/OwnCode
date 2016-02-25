@@ -1,0 +1,24 @@
+package com.example.a5listview;
+
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+
+public class haizeiAdapter extends ArrayAdapter<haizei> {
+
+	int resourceid;
+
+	public haizeiAdapter(Context context, int resource, haizei[] objects) {
+		super(context, resource, objects);
+		// TODO Auto-generated constructor stub
+		resourceid = resource;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		// TODO Auto-generated method stub
+
+		return super.getView(position, convertView, parent);
+	}
+}

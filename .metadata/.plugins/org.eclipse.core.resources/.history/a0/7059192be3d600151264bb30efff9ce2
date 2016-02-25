@@ -1,0 +1,46 @@
+package com.example.a3progressbar;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ProgressBar;
+
+public class MainActivity extends Activity implements OnClickListener{
+
+	ProgressBar progressBar;
+	Button btn;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        
+        progressBar=(ProgressBar) findViewById(R.id.progress);
+        btn = (Button) findViewById(R.id.btn);
+        btn.setOnClickListener(this);
+    }
+
+
+    
+
+	@Override
+	public void onClick(View arg0) {
+		// TODO Auto-generated method stub
+		switch (arg0.getId()) {
+		case R.id.btn:
+			if (progressBar.getVisibility()==View.GONE) {
+				progressBar.setVisibility(View.VISIBLE);
+			}else {
+				progressBar.setVisibility(View.GONE);
+			}
+			break;
+
+		default:
+			break;
+		}
+	}
+    
+}

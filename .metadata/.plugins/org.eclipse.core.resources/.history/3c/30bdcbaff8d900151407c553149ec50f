@@ -1,0 +1,5 @@
+package com.example.a21servicealarm;
+
+public class AlarmReceiver {
+
+}

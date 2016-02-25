@@ -1,0 +1,94 @@
+package com.example.a26lbs;
+
+import java.util.List;
+
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Context;
+import android.view.Menu;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+
+	
+	TextView txt;
+	LocationManager manager;
+	String provider;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        txt=(TextView) findViewById(R.id.txt);
+        manager=(LocationManager) getSystemService(Context.LOCATION_SERVICE);
+    List<String> providerlList=manager.getProviders(true);
+    if (providerlList.contains(LocationManager.GPS_PROVIDER)) {
+		provider=LocationManager.GPS_PROVIDER;
+	}else if (providerlList.contains(LocationManager.NETWORK_PROVIDER)) {
+		provider=LocationManager.NETWORK_PROVIDER;
+	}else {
+		// 当没有可用的位置提供器时，弹出Toast提示用户
+		Toast.makeText(this, "No location provider to use",
+		Toast.LENGTH_SHORT).show();
+		return;
+	}
+    Location location=manager.getLastKnownLocation(provider);
+    if (location!=null) {
+		showLocation(location);
+	}
+    manager.requestLocationUpdates(provider, 5000, 1, locationListenner);
+    }
+@Override
+protected void onDestroy() {
+	// TODO Auto-generated method stub
+	super.onDestroy();
+	if (manager!=null) {
+	manager.removeUpdates(locationListenner);
+	}
+	
+}
+LocationListener locationListenner=new LocationListener() {
+	
+	@Override
+	public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void onProviderEnabled(String arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void onProviderDisabled(String arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void onLocationChanged(Location arg0) {
+		// TODO Auto-generated method stub
+		showLocation(arg0);
+	}
+};
+
+    private void showLocation(Location location) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+    
+}

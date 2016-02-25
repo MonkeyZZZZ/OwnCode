@@ -1,0 +1,5 @@
+package com.monkeyweather.app.db;
+
+public class MonkeyWeatherDB {
+
+}

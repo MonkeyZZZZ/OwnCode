@@ -1,0 +1,5 @@
+package com.monkeyweather.app.model;
+
+public class County {
+
+}

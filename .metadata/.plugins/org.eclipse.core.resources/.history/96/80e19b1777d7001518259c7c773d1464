@@ -1,0 +1,7 @@
+package com.example.a5listview;
+
+import android.widget.ArrayAdapter;
+
+public class haizeiAdapter extends ArrayAdapter<haizei> {
+
+}

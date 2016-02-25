@@ -1,0 +1,56 @@
+package com.example.a25multouch;
+
+import android.os.Bundle;
+import android.provider.ContactsContract.CommonDataKinds.Event;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.RelativeLayout.LayoutParams;
+
+public class MainActivity extends Activity {
+
+	
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        image=(ImageView) findViewById(R.id.imageView1);
+        root=(FrameLayout) findViewById(R.id.container);
+        root.setOnTouchListener(new View.OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View arg0, MotionEvent arg1) {
+				// TODO Auto-generated method stub
+				
+				switch (arg1.getAction()) {
+				case MotionEvent.ACTION_DOWN:
+					System.out.println("action down");
+					break;
+                 
+				case MotionEvent.ACTION_MOVE:
+					System.out.println("action move");
+					System.out.println(String.format("x:%f,y:%f",arg1.getX(),arg1.getY()));
+					FrameLayout.LayoutParams lp=(FrameLayout.LayoutParams) image.getLayoutParams();
+					lp.leftMargin=(int) arg1.getX();
+					lp.rightMargin=(int) arg1.getY();
+					
+					image.setLayoutParams(lp);
+					break;
+				case MotionEvent.ACTION_UP:
+					System.out.println("action up");
+					break;
+			
+				}
+				return true;
+			}
+		});
+    }
+private ImageView image;
+private FrameLayout root;
+    
+}

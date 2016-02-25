@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//src/com/monkeyweather/app/activity/WeatherActivity.java=UTF-8
+encoding//src/com/monkeyweather/app/db/CoolWeatherDB.java=UTF-8
+encoding//src/com/monkeyweather/app/db/CoolWeatherOpenHelper.java=UTF-8
+encoding//src/com/monkeyweather/app/service/AutoUpdateService.java=UTF-8
+encoding//src/com/monkeyweather/app/util/Utility.java=UTF-8

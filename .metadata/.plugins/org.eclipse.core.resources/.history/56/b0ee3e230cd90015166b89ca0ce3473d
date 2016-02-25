@@ -1,0 +1,43 @@
+package com.example.a8newsfragment;
+
+import java.util.List;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+public class NesAdapter extends ArrayAdapter<News>{
+	private int sourceID;
+
+	public NesAdapter(Context context, int resource, List<News> objects) {
+		super(context, resource, objects);
+		// TODO Auto-generated constructor stub
+		sourceID=resource;
+	}
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		// TODO Auto-generated method stub
+		
+		News news=getItem(position);
+		View view ;
+		ViewHolder viewHolder = null ;
+		if (convertView==null) {
+			view=LayoutInflater.from(getContext()).inflate(sourceID, null);
+			viewHolder.all=(TextView) view.findViewById(R.id.news_title);
+		    view.setTag(viewHolder);
+		}else {
+			view=convertView;
+			viewHolder=(ViewHolder) view.getTag();
+			
+		}
+		viewHolder.all.setText(news.getTitle());
+		return view;
+	}
+class ViewHolder{
+	TextView all;
+	
+}
+}

@@ -1,0 +1,39 @@
+package com.monkeyz.mmmap;
+
+import com.baidu.mapapi.BMapManager;
+import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.model.inner.GeoPoint;
+import com.baidu.platform.comapi.map.m;
+import com.example.a27baidulbs.R;
+
+import android.location.Location;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+
+public class MainActivity extends Activity {
+
+	
+	MapView mapView;
+	BMapManager manager;
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        manager=new BMapManager();
+        //manager.init("mpCp05AGDkdoGuf1ourgwOTr",null);
+        setContentView(R.layout.activity_main);
+        mapView=(MapView) findViewById(R.id.map_view);
+        
+      
+        
+    }
+    private void navigateTo(Location location) {
+    	//MapController controller = mapView.getController();
+    	controller.setZoom(16); // 设置缩放级别
+    	GeoPoint point = new GeoPoint((int) (location.getLatitude() * 1E6),
+    	(int) (location.getLongitude() * 1E6));
+    	controller.setCenter(point); // 设置地图中心点
+    	}
+    
+}

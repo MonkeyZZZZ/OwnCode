@@ -1,0 +1,26 @@
+package com.example.a5listview;
+
+public class haizei {
+
+	public int age;
+	public String name;
+	public String say;
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getSay() {
+		return say;
+	}
+	public void setSay(String say) {
+		this.say = say;
+	}
+}

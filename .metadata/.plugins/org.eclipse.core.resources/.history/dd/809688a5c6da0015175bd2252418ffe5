@@ -1,0 +1,5 @@
+package com.monkeyweather.app.util;
+
+public interface HttpCallbackListener {
+
+}
